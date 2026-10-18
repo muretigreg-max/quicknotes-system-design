@@ -57,7 +57,16 @@ function renderNotes(noteList) {
     const body = document.createElement("p");
     body.textContent = note.body || "No body provided.";
 
-    item.append(title, body);
+    const deleteButton = document.createElement("button");
+    deleteButton.type = "button";
+    deleteButton.className = "delete-btn";
+    deleteButton.textContent = "Delete";
+
+    deleteButton.addEventListener("click", function () {
+      deleteNote(note.id);
+    });
+
+    item.append(title, body, deleteButton);
     notesList.append(item);
   });
 }
@@ -149,4 +158,35 @@ async function createNote(event) {
 }
 
 noteForm.addEventListener("submit", createNote);
+
+
+async function deleteNote(noteId) {
+  const confirmed = window.confirm("Are you sure you want to delete this note?");
+
+  if (!confirmed) {
+    return;
+  }
+
+  showStatus("Deleting note...");
+
+  try {
+    const result = await request(API_URL + "/" + noteId, {
+      method: "DELETE",
+    });
+
+    // JSONPlaceholder simulates DELETE; it does not permanently delete server data.
+    notes = notes.filter(function (note) {
+      return note.id !== noteId;
+    });
+
+    renderNotes(notes);
+    showStatus(
+      "Note deleted successfully (status " + result.status + ").",
+      "success"
+    );
+  } catch (error) {
+    showStatus("Unable to delete note. Please try again.", "error");
+    console.error("Error deleting note:", error);
+  }
+}
 
