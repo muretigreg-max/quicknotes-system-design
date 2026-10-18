@@ -1,0 +1,170 @@
+
+/* General page styling */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  color: #243047;
+  background-color: #f3f6fb;
+}
+
+/* Header and footer */
+.page-header {
+  padding: 2rem 1rem;
+  text-align: center;
+  color: white;
+  background-color: #243b63;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+}
+
+.page-header p {
+  margin-bottom: 0;
+}
+
+.page-footer {
+  padding: 1rem;
+  text-align: center;
+  color: #596579;
+}
+
+/* Main content */
+.container {
+  width: min(900px, 92%);
+  margin: 2rem auto;
+}
+
+.panel {
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  background-color: white;
+  border: 1px solid #dce3ed;
+  border-radius: 10px;
+}
+
+.panel h2 {
+  margin-top: 0;
+}
+
+/* Form controls */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: bold;
+}
+
+input,
+textarea {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  font: inherit;
+  border: 1px solid #b8c3d3;
+  border-radius: 6px;
+}
+
+input:focus,
+textarea:focus {
+  outline: 2px solid #6b91d4;
+  outline-offset: 1px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* Buttons */
+button {
+  padding: 0.7rem 1rem;
+  font: inherit;
+  color: white;
+  background-color: #2459a9;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  background-color: #194582;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.delete-btn {
+  margin-top: 0.5rem;
+  background-color: #b42332;
+}
+
+.delete-btn:hover:not(:disabled) {
+  background-color: #891b26;
+}
+
+/* Status messages */
+#status {
+  margin: 1rem 0;
+  padding: 0.75rem;
+  border-radius: 6px;
+  background-color: #edf1f7;
+}
+
+#status.success {
+  color: #17663a;
+  background-color: #e6f6ec;
+}
+
+#status.error {
+  color: #9b1c2c;
+  background-color: #fdebed;
+}
+
+/* Notes list */
+#notes-list {
+  padding-left: 1.5rem;
+}
+
+.note-item {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  overflow-wrap: anywhere;
+  background-color: #f8faff;
+  border: 1px solid #dce3ed;
+  border-radius: 8px;
+}
+
+.note-item h3 {
+  margin-top: 0;
+  overflow-wrap: anywhere;
+}
+
+.note-item p {
+  white-space: pre-wrap;
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 94%;
+    margin: 1rem auto;
+  }
+
+  .panel {
+    padding: 1rem;
+  }
+
+  .page-header h1 {
+    font-size: 1.8rem;
+  }
+}
